@@ -1,0 +1,270 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar for dark mode */
+.dark *::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark *::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 4px;
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Light mode scrollbar */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Animation for smooth transitions */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom button hover effects */
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200;
+}
+
+.dark .btn-secondary {
+  @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+}
+
+/* Custom input styles */
+.input-field {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200;
+}
+
+.dark .input-field {
+  @apply bg-gray-700 border-gray-600 text-white placeholder-gray-400;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300;
+}
+
+.dark .card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Navigation active state */
+.nav-item-active {
+  @apply bg-blue-600 text-white;
+}
+
+.nav-item {
+  @apply text-gray-600 hover:bg-gray-100 hover:text-gray-800;
+}
+
+.dark .nav-item {
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+/* Message bubble styles */
+.message-user {
+  @apply bg-blue-600 text-white rounded-lg px-4 py-2 max-w-md ml-auto;
+}
+
+.message-assistant {
+  @apply bg-gray-100 text-gray-800 rounded-lg px-4 py-2 max-w-md;
+}
+
+.dark .message-assistant {
+  @apply bg-gray-700 text-white;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Health record type badges */
+.badge-prescription {
+  @apply bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium;
+}
+
+.badge-report {
+  @apply bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium;
+}
+
+.badge-notes {
+  @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium;
+}
+
+.dark .badge-prescription {
+  @apply bg-green-800 text-green-200;
+}
+
+.dark .badge-report {
+  @apply bg-blue-800 text-blue-200;
+}
+
+.dark .badge-notes {
+  @apply bg-gray-700 text-gray-200;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.health-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Form validation styles */
+.form-error {
+  @apply border-red-300 focus:border-red-500 focus:ring-red-500;
+}
+
+.error-message {
+  @apply text-red-600 text-sm mt-1;
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Health-specific styling */
+.health-icon {
+  @apply w-6 h-6 text-blue-600;
+}
+
+.vital-card {
+  @apply bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200 rounded-lg p-4;
+}
+
+.dark .vital-card {
+  @apply from-blue-900 to-indigo-900 border-blue-700;
+}
+
+/* Status indicators */
+.status-complete {
+  @apply bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.status-incomplete {
+  @apply bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.dark .status-complete {
+  @apply bg-green-800 text-green-200;
+}
+
+.dark .status-incomplete {
+  @apply bg-yellow-800 text-yellow-200;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Print styles for medical records */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+}
